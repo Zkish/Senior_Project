@@ -1,0 +1,6 @@
+Project Idea: DIY Homeowners do it all website
+
+What the site will offer: 
+
+Project Cost Calculator - tool that will estimate time, cost, and materials needed
+monitization of the cost and materials through affiliated sites ex: Amazon, Lowes, HomeDepot.
