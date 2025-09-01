@@ -7,4 +7,6 @@ monitization of the cost and materials through affiliated sites ex: Amazon, Lowe
 
 Group Forum - forum that can do Q&A and general discussions about home improvement projects. 
 
-Helper Finder - Locaiton based contractor reccomendations based on specified project for when the DIY gets too hard.
+Helper Finder - Location based contractor reccomendations based on specified project for when the DIY gets too hard.
+
+Each customer will also be able to create a login to use for the site and save information such as past calculations and contribute to forum posts and Q&A.
