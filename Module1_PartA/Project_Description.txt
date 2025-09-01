@@ -4,3 +4,7 @@ What the site will offer:
 
 Project Cost Calculator - tool that will estimate time, cost, and materials needed
 monitization of the cost and materials through affiliated sites ex: Amazon, Lowes, HomeDepot.
+
+Group Forum - forum that can do Q&A and general discussions about home improvement projects. 
+
+Helper Finder - Locaiton based contractor reccomendations based on specified project for when the DIY gets too hard.

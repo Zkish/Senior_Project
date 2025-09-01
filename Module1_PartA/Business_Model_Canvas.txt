@@ -1,0 +1,16 @@
+Customer Segments:
+* homeowners wanting to save money on rennovations and repairs
+* DIY enthusiasts looking for planning tools and answers to questions from reputable sources or even contractors themselves.
+
+Value Propositions:
+* instant project estimates (cost, time, difficulty, materials list)
+* smart calculators powered by average market prices and location based data
+* location based local contractor finder for when the DIY gets too hard to do yourself. 
+
+Channels:
+* website
+
+Customer Relations:
+* self service (calculators and projections of projects)
+* community driven (forums, comment section, and Q&A)
+* automated chatbot integration for complex questions on specific projects (long term addition)
