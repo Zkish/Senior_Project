@@ -1,0 +1,15 @@
+How do you make sure the system is secure and data is safe?
+
+How we are going to make sure that the system is secure and data is going to be safe is by creating a login window before accessing the main site, all of the login information will be stored on a database that will be encrypted so neither we or hackers will be able to gain the information, in the future of the project we may even add in an ability for the user to be able to recreate / recover their username or password by using a “forget” button, what this would do is email the user which would provide a way for them to override their past credentials and have it be their new ones for logging in.
+
+What data is sensitive?
+
+Any personal information is considered sensitive, information such as the user's phone number, email address, password, home address, date of birth, etc. these are the basics of user sensitive data that would need extra securing but depending on the country you are in this can get a bit more strict or lenient.
+
+How will you protect it?
+
+We will protect the data by utilizing hashing algorithms in the database so that even we are not able to see the information that they provide. During a password reset we will use reset tokens. And lastly we will add in the ability for the user to completely delete their account if they want to which will remove everything in our database that is linked to them.
+
+What specific technologies will you use for protection?
+
+The specific technologies being used in order to protect the user with the login screen is going to be Postgres or MySQL for the database connection. We would then hash passwords by using an algorithm such as argon2 or bcrypt.
