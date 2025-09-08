@@ -1,0 +1,28 @@
+
+JSON Example of what the Login process will look like.
+
+URL Example:
+
+POST https://DIYRemodelsLogin/api/login
+
+Input JSON:
+
+{
+  "username": "RandomDude999",
+  "password": "HelloWorld123!"
+}
+
+Output JSON:
+
+{
+  "status": "success",
+  "message": "Login successful",
+  "token": "eyJGTrciOuigUzI1NiIsInR"
+}
+
+Output JSON Failure:
+
+{
+  "status": "error",
+  "message": "Invalid username or password"
+}
