@@ -1,0 +1,53 @@
+JSON Example of User Registration Process
+
+URL Example:
+
+POST https://DIYregistration/api/UserRegistration
+
+Input JSON:
+
+{
+  "username": "TestUser",
+  "email": "testuser1@test.com"
+  "password": "password123"
+  "confirmpassword": "password123"
+}
+
+Output JSON:
+
+{
+  "status": "success",
+  "message": "Account Registered",
+  "token": "fewoifvnwiufn432Vv"
+}
+
+Output JSON Failures:
+
+Passwords don't match:
+
+{
+  "status": "error",
+  "message": "Passwords do not match"
+}
+
+email is invalid:
+
+{
+  "status": "error",
+  "message": "invlaid email"
+}
+
+username is taken:
+
+{
+  "status": "error",
+  "message": "This username is already taken"
+}
+
+email in use:
+
+{
+  "status": "error",
+  "message": "This email is already associated with an account"
+}
+
