@@ -3,18 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DIY_HomeKit</title>
+  <title class="home">DIY_HomeKit</title>
   <style>
-    title {
+    
+    /* Added CSS for the body of main title*/
+    
+    body{
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: top;
+      height: 100vh;
+    }
+
+   
+    
+    /*home{
+        
         text-align: center;
         font: size 14px;
         font-family: Impact;
 
+    }*/
+
+    /* added hamburger menu*/
+    .hamburger {
+      width: 35px; 
+      height: 25px; 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; 
+      cursor: pointer;
+      align-items: center;
     }
+    /* lines for the hamburger*/
+    .line {
+      width: 100%;
+      height: 3px;
+      background-color: black;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Hidden menu container */
+    .menu {
+      display: none;
+      margin-top: 20px;
+    }
+
+    /* Show menu when active */
+    .menu.active {
+      display: block;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0px, 0px, 0px, 0px;
+    }
+
+    li {
+      padding: 5px, 0px, 0px, 0px;
+      margin: 5px, 5px, 5px, 5px;
+    }
+ 
   </style>
 </head>
 <body>
-    <h1>DIY Homekit</h1>
-    <p>The place you come to when you need help with your remodeling dreams.</p>
+  <!--div for hamburger -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- list shown when clicked on -->
+  <div class="menu" id="menu">
+    <ul>
+      <li>Account</li>
+    </ul>
+    <ul>
+      <li>Calculators</li>
+    </ul>
+    <ul>
+      <li>Forum</li>
+    </ul>
+  </div>
+  
+  <h1>DIY Homekit</h1>
+  <p>The place you come to when you need help with your remodeling dreams.</p>
+  
+  
+  <script>
+    /* function for clicking the menu */
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+
+  
 </body>
 </html>
