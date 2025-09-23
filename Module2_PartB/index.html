@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--Scale To Size of Device-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeKit Login</title>
+  <!-- Look Pretty -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg,#0056b3, #007bff, #f4f4f4);
+    }
+    .login-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<!--Container to hold / get the username and password information to checksum upon users valid-->
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <p class="error" id="errorMsg"></p>
+  </div>
+
+  <script>
+    // Hardcoded usernames and passwords
+    const users = {
+      "zkish": "Testing123!",
+      "mah0317": "HelloWorld123!",
+      "IRodrigues": "IWannaGraduate123!",
+      "craig": "HolaWorld123!"
+    };
+    // Grabbing the elements to check their values also the function used when button is clicked
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const errorMsg = document.getElementById("errorMsg");
+        // if correct = logged in and reroute to main page | else fail and make retry
+      if (users[username] && users[username] === password) {
+        // alert("Welcome, " + username + "!");
+        // Page Redirect
+        window.location.href = "main.html";
+      } else {
+        errorMsg.textContent = "Invalid username or password.";
+      }
+    }
+  </script>
+
+</body>
+</html>
