@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIY_HomeKit</title>
+   <link rel="icon" type="image/png" href="HomeKit_Icon.png">
+  <link rel="stylesheet" href="estimatorstyles.css">
+</head>
+<body>
+  <nav>
+  <a href="#" class="logo">
+  <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="height: 30px; vertical-align: middle; margin-right: 8px;">
+  HomeKit
+  </a>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <ul id="nav-links">
+        <li><a href="main.html">Home</a></li>
+        <li><a href="#estimator.html">Estimation Calculator</a></li>
+        <li><a href="#forum">Forum</a></li>
+        <li><a href="#account">Account</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+<h1>Estimator</h1>
+<br>
+<p>Here are some links to get inventory prices before calculations:</p>
+<a href="https://www.lowes.com">Lowes Prices</a>
+<br>
+<a href="https://www.homedepot.com">HomeDepot Prices</a>
+<br>
+<br>
+
+<!--DEMO CALCULATOR THAT WILL BE BASE OF MOST OF THE ESTIMATORS EACH ONE SHOULD BE SEPERATE DIV CONTAINER-->
+<h2>Demo Calculator</h2>
+<p>Product cost:</p>
+<input type="text" id="number1" placeholder="Cost">
+<br>
+<p>How much Product Needed:</p>
+<input type="text" id="number2" placeholder="Amount Needed">
+<br>
+<br>
+<button onclick="showInput()">Estimate</button>
+
+<p id="output"></p>
+
+<script>
+function showInput() {
+  // Get values from input boxes
+  const inputnumber1 = document.getElementById("number1").value;
+  const inputnumber2 = document.getElementById("number2").value;
+
+  // Convert strings to numbers
+  const num1 = parseFloat(inputnumber1);
+  const num2 = parseFloat(inputnumber2);
+
+  // Add them
+  const total = num1 + num2;
+
+  // Display the result and also validate that the input is in fact numbers even after conversion.
+  if (!isNaN(total)) {
+    document.getElementById("output").innerText = "Sum: " + total;
+  } else {
+    document.getElementById("output").innerText = "Please enter valid numbers!";
+  }
+}
+</script>
+  <p id="output"></p>
+</body>
+</html>
