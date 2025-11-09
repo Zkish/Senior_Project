@@ -1,0 +1,30 @@
+For this project, we identified a business problem that can be addressed using business analytics: determining the optimal cities to launch a home improvement app or advertising campaign. The goal is to use data to predict where potential customers are most active and likely to spend on home remodeling and repair.
+
+Step 1: Identify available data
+We researched publicly reported home remodeling data and population statistics. Our focus was on two key metrics:
+
+Number of home remodels per 100,000 people
+
+City population growth rates
+
+Step 2: Generate or collect data if necessary
+We collected data for cities where home remodels are reported the most. Our preliminary research identified Denver, CO and Minneapolis, MN as the top two cities:
+
+Denver: 62,000 remodels per 100,000 people
+
+Minneapolis: 60,000 remodels per 100,000 people
+
+Population growth from 2023–2024 was used as a baseline for projections:
+
+Denver: 1.09%
+
+Minneapolis: 0.8%
+
+Step 3: Visualize the data
+We use Python with Matplotlib to create visualizations of historical remodel spending and population trends. This will help identify growth patterns and seasonal trends.
+
+Step 4: Design a solution
+We will apply a regression algorithm to project remodel activity over the next 20 years, taking population growth into account. Using these projections, we can estimate where demand for the app or marketing campaigns will be highest.
+
+Step 5: Expected outcome
+By analyzing spending patterns and population trends, we can determine the best cities for launching the app and targeting ad campaigns. Preliminary findings suggest Denver and Minneapolis are strong candidates due to high remodel activity and positive population growth trends.
