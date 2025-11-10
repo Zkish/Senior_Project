@@ -1,0 +1,38 @@
+Mark Hart Interviews:
+
+1. Interview Summary: Matthew
+Name: Matthew Occupation: Active Duty Marine / Homeowner
+
+After reviewing the product roadmap, Matthew, who is actively looking to renovate his house, focused heavily on the instant project estimates and the ability to generate a quick materials list. He stated that as an active duty service member, his time is limited, and being able to generate a reliable starting point for budgeting and material acquisition immediately would be the greatest value proposition. He specifically noted the need for location-based contractor information, as reliable tradespeople can be difficult to find when relocating frequently.
+
+Matthew is the type of person who focuses on efficiency and reliability, treating renovation projects like a mission plan and needing the best possible intelligence before execution.
+
+2. Interview Summary: Devin
+Name: Devin Occupation: Armed Security Officer / Inherited Homeowner
+
+Devin, who inherited a home needing repairs before he can move in, was primarily interested in the smart calculators and the community-driven Q&A/forums. He expressed anxiety about undertaking repairs on a house he didn't originally buy, fearing hidden costs or "doing things the wrong way." He wants to ensure his repairs meet code and are durable. The forum would serve as an essential second-opinion tool—a place to verify complex repair steps with others before committing to a costly mistake.
+
+Devin is the type of person who is budget-conscious and needs reassurance before investing time or money in unfamiliar and mandatory repairs.
+
+3. Interview Summary: Jonay
+Name: Jonay Occupation: Practice Manager / First-Time Home Buyer
+
+Jonay is overwhelmed but excited about her first home. She was most interested in the instant project estimates (cost, time) and the community forums. As she is starting from scratch, she feels overwhelmed by the sheer volume of projects and potential costs. She stated that having a tool that could provide a reliable budget anchor for foundational renovations (like flooring or painting) would prevent her from getting financially underwater. The forum would be crucial for "hand-holding"—a place to see simple, step-by-step guides and get validation that a basic DIY project is manageable for a novice.
+
+Jonay is the type of person who is risk-averse and budget-sensitive, needing simple, reliable data to build her foundational knowledge and confidence.
+
+Hypothesis:
+
+Customers using a DIY home renovation app need a foundation of financial confidence and procedural certainty. They will use the product as an objective planning tool to instantly answer the two most stressful questions: "How much will this cost?" and "Am I doing this right?" The primary value will be derived from the combination of instant, data-driven cost estimates (reducing financial fear) and a verified community/forum (reducing fear of failure or choosing the wrong path/materials).
+
+Common struggles that DIY Homeowners experience:
+
+Finances: Not knowing what a project should cost or how much material to buy (leading to budget overruns).
+
+Overwhelmed: (Especially first-time buyers) being paralyzed by the scope of work and conflicting information.
+
+
+Hypothesis Validation
+After interviewing Matthew, Devin, and Jonay, the hypothesis holds strongly true, confirming that our Value Propositions directly addresses their primary struggles across all segments:
+
+Conclusion: The interviews validate that the core demands are centered on the Estimation tools (cost, time, materials) and the Community-Driven features (forums, Q&A). The shift to Jonay being a first-time home buyer solidifies the importance of the Community/Self-Service features as a means of risk mitigation and confidence building for novices. Devin's need for real-world variables in the calculators and Matthew's need for instant efficiency prove that the focus on smart, location-based data remains critical for all three segments. The product's foundation is well-aligned with key customer anxieties.
