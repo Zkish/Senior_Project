@@ -1,0 +1,49 @@
+Zachary Kish Interviews:
+
+1.
+
+Name: Lescher
+Occupation: Rental Property Manager
+
+After showing our current site as well as the road map as to what it will be to he believes that it would definitely be something that he would use.
+
+The biggest features that stood out to him were the price comparison addition that is going to be rolled out here soon on the actual site, and forum. He asked if it was going to be something like Reddit, but I explained that the end goal here is to have verified professionals posting onto the forum not just anyone, although anyone will have access to look at and search for threads related to the information that they are after.
+
+Lescher is the type of person who owns 5+ properties and follows remodel trends heavily.
+
+2.
+
+Name: Steve
+Occupation: Network Engineer / Owns a few properties for rental purposes
+
+After showing Steve our app he was interested in the calculator portion the most, reason being is he was wondering if we would include options to include “common pitfalls” incorporated into them. An example he gave is, compensating for the odds of pretty much always needing a second coat of paint, he said if there was a tick box that he could check to include overestimation’s based on common pitfalls then the calculation app would be one of the best.
+
+Steve is the type of person who will remodel properties after each tenant moves out and then he can upgrade and up-sell more.
+
+3.
+
+Name: Aletha
+Occupation: Operations Manager
+
+Aletha is the type of person who does things around her house when the colder seasons roll around and theirs not much else do to. She does everything to painting, and flooring, to installing light fixtures and kitchen islands.
+
+After showing her the site and the road map she said that this application would be a great place for someone new / experienced alike to at least look at a few times during their DIY projects, especially to maybe look at the forums and see common issues that people doing the same issues have encountered and how to best avoid or overcome those issues
+
+
+
+Hypothesis: 
+
+why they need / how they would use the app - 
+Customers using a DIY home remodeling app will want simple, guided planning tools and professional community-based reassurance. Specifically, they will value features that help them estimate total project cost and time, compare material options, avoid mistakes, and get real advice from people who have done similar projects. The more confidence the app provides in decision-making, the more likely they are to continue using it and recommend it to others. 
+
+Common struggles that DIY Homeowners experience:
+1. not knowing what a project should cost.
+2. fear of messing up or choosing the wrong materials.
+3. Feeling overwhelmed by conflicting online advice
+4. Needing encouragement or examples from others.
+
+Hypothesis Validation:
+
+After the interviews I can see that my hypothesis stands true. The people want an application that can improve confidence on DIY projects, and offer professional guidance and advice. As well the estimation aspects of the application are indeed what is in demand from an all in one home remodel application.
+
+The current build right now we still need to implement a lot of what is on the road map for the completed product. The foundation is there, we just need to write the back end code and clean up a few pages to make the UI look nicer.interviewing lescher and showing him what we currently have as well as the plan

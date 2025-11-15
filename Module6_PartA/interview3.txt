@@ -1,0 +1,34 @@
+Craig Pulford Interviews:
+
+Interview #1
+Name: Dylan Quinn
+Occupation: Line Cook
+Type of Residence: Apartment Complex
+
+I explained the website and what its being developed for the use of it and how it’s intended to be useful for people. I knew this person did not live in a house and interviewed him intentionally because of that
+Upon viewing the website he liked it. The issue he had basically is that he can’t do any meaningful home projects (because of the apartment living) but he liked the calculator and a lot of the theoretical (but yet to be fully developed) parts of the application. 
+
+Interview #2
+Name: Elizabeth Rojas
+Occupation: Hotel 
+Type of Residence: House (not owner but family owned)
+
+Before I interviewed this person it reminded me of implementing things for accessibility since she’s not a native English speaker and is in the process of learning English so obviously understanding of what is on the website could be an issue. But also, implementation for people who may be colorblind or other visual accessibility issues that should be considered. On the forum aspect for example, if a user’s language is set to Spanish, or some other language having it translated to the other language could be a feature to consider.
+She liked how the website looked, which I think she was just being polite (not that it’s bad but it needs some more love for sure). Wasn’t too much exchanged just that it was a good idea and it seemed good
+
+Interview #3
+Name: Michelle Valentinex
+Occupation: Health Clinic Receptionist
+Type of Residence: House (Owner)
+
+Similar as before I explained the website and how it works.
+Michelle likes the concept of the product and how the website functions, She wasn’t a fan of the “color” of the webpage, but she didn’t find any issues besides it being bare (which can be attributed to it being a work in progress.
+
+Hypothesis:
+Who is going to use this application?
+Homeowners will be the primary users of the application // customers need a product which can assist them with home renovation and be used for multiple purposes.
+
+Reviewing Hypothesis after interview:
+This turns out to be true, obviously there isn’t a big pool of interviewees but given that its focused-on DIY projects and topics which typically require ownership of the property it’s the primary demographic. The product idea people seem to like but it’s use really depends on who that person is and if they own property or at least live in property which has ability for modification. 
+I wouldn’t want to change how the website is, but there definitely can be some function given in the website or at least try to have the demographic of people living in apartments touched on. 
+
