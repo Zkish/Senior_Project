@@ -4,16 +4,18 @@ const path = require('path');
 const db = require('./db');
 const bcrypt = require('bcryptjs');
 const SALT_ROUNDS = 10;
+const cors = require('cors');
+
 
 const app = express();
 const PORT = 3000;
-
 // test DB connection
 db.query('SELECT 1', (err) => {
   if (err) console.error('Error connecting to database:', err);
   else console.log('Database connection successful');
 });
 
+app.use(cors());
 app.use(bodyParser.json());
 // directory path may need updated depending on how files are served
 app.use(express.static(path.join(__dirname))); 
@@ -143,4 +145,4 @@ app.post("/login", (req, res) => {
 
 
 // server start
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on http://0.0.0.0:${PORT}`));
