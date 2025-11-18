@@ -135,7 +135,7 @@ body {
     color: #333;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: 0.3s ease;
   }
   
   form button:hover {

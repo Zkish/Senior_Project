@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="create.css">
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Create Account</h2>
+
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+    <button onclick="createAccount()">Create Account</button>
+    <p class="error" id="errorMsg"></p>
+
+    <a href="index.html">Return to Login Page</a>
+</div>
+
+<script>
+    async function createAccount() {
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const errorMsg = document.getElementById("errorMsg");
+    
+        errorMsg.textContent = "";
+    
+        if (!username || !email || !password) {
+            errorMsg.textContent = "All fields are required.";
+            return;
+        }
+    
+        if (password !== confirmPassword) {
+            errorMsg.textContent = "Passwords do not match.";
+            return;
+        }
+    
+        try {
+            const response = await fetch("/create-account", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, email, password })
+            });
+    
+            const result = await response.json();
+    
+            if (result.success) {
+                alert("Account created successfully!");
+                window.location.href = "index.html"; // back to login
+            } else {
+                errorMsg.textContent = result.message;
+            }
+    
+        } catch (err) {
+            console.error("Error:", err);
+            errorMsg.textContent = "Server error. Try again later.";
+        }
+    }
+    </script>
+    
+
+</body>
+</html>

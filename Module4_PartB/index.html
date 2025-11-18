@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!--Scale To Size of Device-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- To Use Static login (does not use database) go to indexOld.html -->
+
   <title>HomeKit Login</title>
-  <!-- Look Pretty -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -46,54 +47,46 @@
       margin-top: 10px;
     }
   </style>
-
-
-
-
-
-
 </head>
 <body>
-
-
-
-
-
-
-
-  
-<!--Container to hold / get the username and password information to checksum upon users valid-->
   <div class="login-box">
     <h2>Login</h2>
     <input type="text" id="username" placeholder="Username" required>
     <input type="password" id="password" placeholder="Password" required>
     <button onclick="login()">Login</button>
     <p class="error" id="errorMsg"></p>
+    <a href="forgotpassword.html">Forgot Password?</a>
   </div>
 
+  <button onclick=""></button>
+
   <script>
-    // Hardcoded usernames and passwords
-    const users = {
-      "zkish": "Testing123!",
-      "mah0317": "HelloWorld123!",
-      "IRodrigues": "IWannaGraduate123!",
-      "craig": "HolaWorld123!"
-    };
-    // Grabbing the elements to check their values also the function used when button is clicked
-    function login() {
+    async function login() {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
       const errorMsg = document.getElementById("errorMsg");
-        // if correct = logged in and reroute to main page | else fail and make retry
-      if (users[username] && users[username] === password) {
-        // alert("Welcome, " + username + "!");
-        // Page Redirect
-        window.location.href = "main.html";
-      } else {
-        errorMsg.textContent = "Invalid username or password.";
+  
+      try {
+        const response = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+  
+        const result = await response.json();
+  
+        if (result.success) {
+          window.location.href = "main.html";
+        } else {
+          errorMsg.textContent = result.message || "Invalid credentials.";
+        }
+  
+      } catch (err) {
+        console.error("Login error:", err);
+        errorMsg.textContent = "Server error — please try again.";
       }
     }
   </script>
-
+  
 </body>
 </html>
