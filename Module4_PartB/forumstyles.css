@@ -135,15 +135,7 @@ body {
   #post-button:hover {
     background-color: #fdd835;
   }
-  
-  .post {
-    background: rgba(0, 0, 0, 0.2);
-    border-left: 4px solid #ffeb3b;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-  }
-  
+
   .post h3 {
     margin: 0 0 5px;
     color: #fff;
@@ -155,3 +147,28 @@ body {
     color: #dcdcdc;
   }
   
+.forum-posts {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+
+#postsContainer {
+  display: block;  
+  width: 100%;
+}
+
+.post {
+  width: 90%;
+  margin: 15px auto; 
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #ffeb3b;
+  border-radius: 6px;
+  box-sizing: border-box;
+}

@@ -157,3 +157,14 @@ body {
     color: #fff;
   }
   
+  .account-logo {
+    text-align: center;
+    margin-top: 25px;
+  }
+  
+  .account-logo img {
+    width: 150px;   /* medium size */
+    height: auto;
+    opacity: 0.95;
+  }
+  
