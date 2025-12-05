@@ -3,68 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DIY_HomeKit</title>
-   <link rel="icon" type="image/png" href="HomeKit_Icon.png">
+  <title>DIY_HomeKit Estimator</title>
   <link rel="stylesheet" href="estimatorstyles.css">
 </head>
 <body>
-  <nav>
-  <a href="#" class="logo">
-  <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="height: 30px; vertical-align: middle; margin-right: 8px;">
-  HomeKit
+   <nav>
+     <a href="#" class="logo">
+    <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="height: 30px; vertical-align: middle; margin-right: 8px;">
+    HomeKit
   </a>
     <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <ul id="nav-links">
-        <li><a href="main.html">Home</a></li>
-        <li><a href="estimator.html">Estimation Calculator</a></li>
-        <li><a href="forum.html">Forum</a></li>
-        <li><a href="account.html">Account</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+      <!--Navigaiton Bar this will be first part of each html file.-->
+      <li><a href="main.html">Home</a></li>
+      <li><a href="estimator.html">Estimation Calculator</a></li>
+      <li><a href="forum.html">Forum</a></li>
+      <li><a href="account.html">Account</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </nav>
-<h1>Estimator</h1>
-<br>
-<p>Here are some links to get inventory prices before calculations:</p>
-<a href="https://www.lowes.com">Lowes Prices</a>
-<br>
-<a href="https://www.homedepot.com">HomeDepot Prices</a>
-<br>
-<br>
+  <h1>Home Remodel Calculators</h1>
 
-<!--DEMO CALCULATOR THAT WILL BE BASE OF MOST OF THE ESTIMATORS EACH ONE SHOULD BE SEPERATE DIV CONTAINER-->
-<h2>Demo Calculator</h2>
-<p>Product cost:</p>
-<input type="text" id="number1" placeholder="Cost">
-<br>
-<p>How much Product Needed:</p>
-<input type="text" id="number2" placeholder="Amount Needed">
-<br>
-<br>
-<button onclick="showInput()">Estimate</button>
+  <!-- FLOORING CALCULATOR -->
+  <div class="calc-container">
+    <h2>Flooring Cost Calculator</h2>
+    <label>Room Length (ft):</label>
+    <input type="number" id="floor_len" placeholder="Length">
 
-<p id="output"></p>
+    <label>Room Width (ft):</label>
+    <input type="number" id="floor_width" placeholder="Width">
 
-<script>
-function showInput() {
-  // Get values from input boxes
-  const inputnumber1 = document.getElementById("number1").value;
-  const inputnumber2 = document.getElementById("number2").value;
+    <label>Cost per Sq Ft ($):</label>
+    <input type="number" id="floor_cost" placeholder="Cost">
 
-  // Convert strings to numbers
-  const num1 = parseFloat(inputnumber1);
-  const num2 = parseFloat(inputnumber2);
+    <button onclick="flooringCalc()">Estimate</button>
+    <p id="floor_output"></p>
+  </div>
 
-  // Add them
-  const total = num1 + num2;
+  <!-- PAINT CALCULATOR -->
+  <div class="calc-container">
+    <h2>Paint Coverage Calculator</h2>
+    <label>Room Perimeter (ft):</label>
+    <input type="number" id="paint_perim" placeholder="Perimeter">
 
-  // Display the result and also validate that the input is in fact numbers even after conversion.
-  if (!isNaN(total)) {
-    document.getElementById("output").innerText = "Sum: " + total;
-  } else {
-    document.getElementById("output").innerText = "Please enter valid numbers!";
-  }
-}
-</script>
-  <p id="output"></p>
+    <label>Wall Height (ft):</label>
+    <input type="number" id="paint_height" placeholder="Height">
+
+    <label>Paint Coverage (sq ft per gallon):</label>
+    <input type="number" id="paint_cover" placeholder="Coverage">
+
+    <button onclick="paintCalc()">Estimate</button>
+    <p id="paint_output"></p>
+  </div>
+
+  <!-- DRYWALL CALCULATOR -->
+  <div class="calc-container">
+    <h2>Drywall Sheet Calculator</h2>
+    <label>Total Wall Square Footage:</label>
+    <input type="number" id="drywall_sqft" placeholder="Sq Ft">
+
+    <label>Cost Per Sheet (4x8):</label>
+    <input type="number" id="drywall_cost" placeholder="Cost">
+
+    <button onclick="drywallCalc()">Estimate</button>
+    <p id="drywall_output"></p>
+  </div>
+
+    <!-- LUMBER BOARD FOOT CALCULATOR -->
+  <div class="calc-container">
+    <h2>Lumber Board Foot Calculator</h2>
+    <label>Thickness (in):</label>
+    <input type="number" id="lumber_thick" placeholder="Thickness">
+
+    <label>Width (in):</label>
+    <input type="number" id="lumber_width" placeholder="Width">
+
+    <label>Length (ft):</label>
+    <input type="number" id="lumber_length" placeholder="Length">
+
+    <label>Cost Per Board Foot ($):</label>
+    <input type="number" id="lumber_cost" placeholder="Cost">
+
+    <button onclick="lumberCalc()">Estimate</button>
+    <p id="lumber_output"></p>
+  </div>
+
+  <!-- CONCRETE VOLUME CALCULATOR -->
+  <div class="calc-container">
+    <h2>Concrete Volume Calculator</h2>
+    <label>Length (ft):</label>
+    <input type="number" id="con_len" placeholder="Length">
+
+    <label>Width (ft):</label>
+    <input type="number" id="con_wid" placeholder="Width">
+
+    <label>Depth (in):</label>
+    <input type="number" id="con_depth" placeholder="Depth">
+
+    <button onclick="concreteCalc()">Estimate</button>
+    <p id="concrete_output"></p>
+  </div>
+
+  <!-- INSULATION R-VALUE CALCULATOR -->
+  <div class="calc-container">
+    <h2>Insulation R-Value Estimator</h2>
+    <label>Total Area (sq ft):</label>
+    <input type="number" id="insul_area" placeholder="Area">
+
+    <label>R-Value per Inch:</label>
+    <input type="number" id="insul_rinch" placeholder="R per Inch">
+
+    <label>Desired R-Value:</label>
+    <input type="number" id="insul_desired" placeholder="Goal R-Value">
+
+    <button onclick="insulCalc()">Estimate</button>
+    <p id="insul_output"></p>
+  </div>
+
+  <!-- ROOFING SHINGLE CALCULATOR -->
+  <div class="calc-container">
+    <h2>Roofing Shingle Calculator</h2>
+    <label>Roof Area (sq ft):</label>
+    <input type="number" id="roof_area" placeholder="Area">
+
+    <label>Bundle Coverage (sq ft per bundle):</label>
+    <input type="number" id="roof_bundle" placeholder="Coverage">
+
+    <label>Cost Per Bundle ($):</label>
+    <input type="number" id="roof_cost" placeholder="Cost">
+
+    <button onclick="roofCalc()">Estimate</button>
+    <p id="roof_output"></p>
+  </div>
+
+
+  <script>
+    function flooringCalc() {
+      const len = parseFloat(document.getElementById("floor_len").value);
+      const wid = parseFloat(document.getElementById("floor_width").value);
+      const cost = parseFloat(document.getElementById("floor_cost").value);
+      const sqft = len * wid;
+      const total = sqft * cost;
+      document.getElementById("floor_output").innerText =
+        !isNaN(total) ? `Total Cost: $${total.toFixed(2)}` : "Please enter valid numbers.";
+    }
+
+    function paintCalc() {
+      const perim = parseFloat(document.getElementById("paint_perim").value);
+      const height = parseFloat(document.getElementById("paint_height").value);
+      const cover = parseFloat(document.getElementById("paint_cover").value);
+      const area = perim * height;
+      const gallons = area / cover;
+      document.getElementById("paint_output").innerText =
+        !isNaN(gallons) ? `Gallons Needed: ${gallons.toFixed(2)}` : "Please enter valid numbers.";
+    }
+
+    function drywallCalc() {
+      const sqft = parseFloat(document.getElementById("drywall_sqft").value);
+      const sheetCost = parseFloat(document.getElementById("drywall_cost").value);
+      const sheetArea = 32; // 4x8 sheet
+      const sheets = sqft / sheetArea;
+      const total = sheets * sheetCost;
+      document.getElementById("drywall_output").innerText =
+        !isNaN(total) ? `Sheets: ${Math.ceil(sheets)}, Estimated Cost: $${total.toFixed(2)}` : "Please enter valid numbers.";
+    }
+
+  </script>
 </body>
 </html>
