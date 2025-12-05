@@ -1,7 +1,3 @@
-/* ------------------------------
-   NAVIGATION BAR (Your Original Code)
---------------------------------*/
-
 nav {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   padding: 10px 20px;
@@ -40,9 +36,7 @@ nav ul li a:hover {
   color: #ffeb3b;
 }
 
-/* ------------------------------
-   GLOBAL STYLES
---------------------------------*/
+
 
 body {
   font-family: "Inter", Arial, sans-serif;
@@ -60,9 +54,7 @@ h1 {
   color: #222;
 }
 
-/* ------------------------------
-   CALCULATOR CARD DESIGN
---------------------------------*/
+
 
 .calc-container {
   max-width: 450px;
@@ -94,9 +86,7 @@ h1 {
   color: #1a1a1a;
 }
 
-/* ------------------------------
-   FORM INPUTS
---------------------------------*/
+
 
 label {
   display: block;
@@ -121,9 +111,7 @@ input[type="number"]:focus {
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
 }
 
-/* ------------------------------
-   BUTTONS
---------------------------------*/
+
 
 button {
   margin-top: 18px;
@@ -148,9 +136,7 @@ button:active {
   transform: scale(0.97);
 }
 
-/* ------------------------------
-   OUTPUT TEXT
---------------------------------*/
+
 
 p {
   font-size: 1.05rem;
@@ -159,9 +145,7 @@ p {
   color: #2c3e50;
 }
 
-/* ------------------------------
-   MOBILE RESPONSIVE
---------------------------------*/
+
 
 @media (max-width: 500px) {
   .calc-container {
