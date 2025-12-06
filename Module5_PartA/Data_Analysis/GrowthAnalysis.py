@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-"""   #Static Variables
+""" #Static Variables
 StartPopulation = 1_000_000
 PopulationGrowth = 0.0109  # 1.09% per year
 SpendingYearBase = 62_000

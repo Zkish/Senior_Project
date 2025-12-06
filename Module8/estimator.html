@@ -136,6 +136,23 @@
     <p id="roof_output"></p>
   </div>
 
+  <!-- Regression Size and Cost Calculator HTML -->
+  <div class="calc-container">
+      <h2>Regression Size and Cost Caluclator</h2>
+
+      <label>Project Length (ft):</label>
+      <input type="number" id="reg_length" placeholder="Length">
+
+      <label>Project Width (ft):</label>
+      <input type="number" id="reg_width" placeholder="Width">
+
+      <button onclick="runRegressionEstimator()">Estimate (Analytics)</button>
+
+      <p id="reg_output"></p>
+  </div>
+
+
+
 
   <script>
     function flooringCalc() {
@@ -167,6 +184,32 @@
       document.getElementById("drywall_output").innerText =
         !isNaN(total) ? `Sheets: ${Math.ceil(sheets)}, Estimated Cost: $${total.toFixed(2)}` : "Please enter valid numbers.";
     }
+
+
+    /*Regression Size and Cost Caluclator Script*/ 
+
+   
+    const slope = 7.15;      
+    const intercept = 80.50; 
+
+    function runRegressionEstimator() {
+        const length = parseFloat(document.getElementById("reg_length").value);
+        const width  = parseFloat(document.getElementById("reg_width").value);
+
+        if (isNaN(length) || isNaN(width)) {
+            document.getElementById("reg_output").innerHTML =
+                "<span style='color:black;'>Please enter valid numbers.</span>";
+            return;
+        }
+
+        const size = length * width;  
+        const predictedCost = (slope * size) + intercept;
+
+        document.getElementById("reg_output").innerHTML =
+            `Predicted Cost (Analytics-Based): <strong>$${predictedCost.toFixed(2)}</strong>`;
+    }
+
+
 
   </script>
 </body>
