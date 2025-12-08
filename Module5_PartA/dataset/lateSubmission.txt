@@ -1,0 +1,41 @@
+
+The following data points will be used:
+1.	Home Age (numerical)
+2.	Size (in square feet)
+3.	HVAC system age (numerical)
+4.	Water Heater Age (numerical)
+5.	Roof Age (numerical)
+6.	Last Repair date (date) (needs to be converted to numerical value) 
+7.	Number of repairs in last 12 months (numerical)
+8.	Maintainence Checklist Completed (true or false)
+9.	Region (Will include 5 climate zones for Northeast/UpperMidwest, Souteast, Southwest, West Coast, and Central US)
+10.	Season
+
+Different risk factors based on region
+Regions:
+1: Northeast and Upper Midwest
+2: Southeast
+3: Southwest
+4: West Coast
+5: Central US
+
+The data I’ll be using will be generated with AI, but realistically the data should be collected by users or via some other collection method of REAL data, and I think in implementation into the prototype (next module) I will include a form for the users to see their own risk score based on the dataset by the user giving their own home information. 
+
+Data visualization, given it’s returning a score I don’t feel is necessary for the users, but I’ll use map plot lib in order to  visualize risk distribution which can make it easily recognizable how at risk people typically are (based only on this model of course). 
+
+Example of data:
+
+Home Age: 102 years old
+Size: 1500 (square feet)
+HVAC AGE: 12 (years)
+Water Heater Age: 5 (years)
+Roof Age: 15 (years)
+Last Repair Date: December 1, 2025 -> Last Repair: 8 Days Ago
+Number of Repairs: 1
+Maintainence Repair List: False
+Region: 2
+Season: 1
+
+Risk_score: 0.98 
+
+The data will not use a simple model, it’ll use all of the characteristics to determine risk between 0 and 1. The code shouldn’t be too complex but will have imports of course, and scikit will be used to learn from the data and be able to have it displayed to the user.
