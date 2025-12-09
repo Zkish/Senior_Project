@@ -69,11 +69,11 @@
     <p id="drywall_output"></p>
   </div>
 
-    <!-- LUMBER BOARD FOOT CALCULATOR -->
+    <!-- LUMBER BOARD FOOT CALCULATOR  -->
   <div class="calc-container">
     <h2>Lumber Board Foot Calculator</h2>
     <label>Thickness (in):</label>
-    <input type="number" id="lumber_thick" placeholder="Thickness">
+    <input type="number" id="lumber_thickness" placeholder="Thickness">
 
     <label>Width (in):</label>
     <input type="number" id="lumber_width" placeholder="Width">
@@ -86,7 +86,12 @@
 
     <button onclick="lumberCalc()">Estimate</button>
     <p id="lumber_output"></p>
-  </div>
+  </div> 
+
+ 
+
+
+  
 
   <!-- CONCRETE VOLUME CALCULATOR -->
   <div class="calc-container">
@@ -152,6 +157,10 @@
   </div>
 
 
+  
+  
+
+
 
 
   <script>
@@ -186,6 +195,53 @@
     }
 
 
+    /* Lumber Board Foot Calculator Script */
+
+    function lumberCalc() {
+    const thickness = parseFloat(document.getElementById("lumber_thickness").value);
+    const width = parseFloat(document.getElementById("lumber_width").value);
+    const length = parseFloat(document.getElementById("lumber_length").value);
+    const costPerBoardFoot = parseFloat(document.getElementById("lumber_cost").value);
+
+    if (isNaN(thickness) || isNaN(width) || isNaN(length) || isNaN(costPerBoardFoot)) {
+        document.getElementById("lumber_output").innerHTML =
+            "<span style='color:black;'>Please enter valid numbers.</span>";
+        return;
+    }
+
+    const boardFeet = (thickness * width * length) / 12;
+    const totalCost = boardFeet * costPerBoardFoot;
+
+    document.getElementById("lumber_output").innerHTML =
+        `<strong>Board Feet:</strong> ${boardFeet.toFixed(2)}<br>
+         <strong>Estimated Cost:</strong> $${totalCost.toFixed(2)}`;
+    }
+
+
+    /* Concrete Volume Calculator */
+
+    /* Concrete Volume Calculator Script */
+    function concreteCalc() {
+    const length = parseFloat(document.getElementById("con_len").value);
+    const width = parseFloat(document.getElementById("con_wid").value);
+    const depth = parseFloat(document.getElementById("con_depth").value); // inches
+
+    if (isNaN(length) || isNaN(width) || isNaN(depth)) {
+        document.getElementById("concrete_output").innerHTML =
+            "<span style='color:black;'>Please enter valid numbers.</span>";
+        return;
+    }
+
+    // Convert to cubic yards
+    const cubicYards = (length * width * depth) / 324;
+
+    document.getElementById("concrete_output").innerHTML =
+        `<strong>Concrete Needed:</strong> ${cubicYards.toFixed(2)} cubic yards`;
+    }
+
+   
+
+
     /*Regression Size and Cost Caluclator Script*/ 
 
    
@@ -210,6 +266,7 @@
     }
 
 
+  
 
   </script>
 </body>
