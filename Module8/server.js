@@ -5,10 +5,11 @@ const db = require('./db');
 const bcrypt = require('bcryptjs');
 const SALT_ROUNDS = 10;
 const cors = require('cors');
-
-
 const app = express();
 const PORT = 3000;
+const session = require("express-session");
+
+
 // test DB connection
 db.query('SELECT 1', (err) => {
   if (err) console.error('Error connecting to database:', err);
@@ -19,6 +20,15 @@ app.use(cors());
 app.use(bodyParser.json());
 // directory path may need updated depending on how files are served
 app.use(express.static(path.join(__dirname))); 
+
+app.use(session({
+  secret: "d2479ab2fc6f3423e6a17b937c7a6ea8f368c3428b1e7dfdf9848201f94ce702",
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    maxAge: 1000 * 60 * 60 * 24 // 1 day
+  }
+}));
 
 // Route: Create Account
 
@@ -138,10 +148,33 @@ app.post("/login", (req, res) => {
       return res.json({ success: false, message: "Incorrect password" });
     }
 
+    // user session
+    req.session.user = {
+      id: user.id,
+      username: user.username,
+      email: user.email
+    };
+
     return res.json({ success: true, message: "Login successful" });
   });
 });
 
+// Route: Check Login
+
+app.get("/auth-check", (req, res) => {
+  if (req.session.user) {
+    return res.json({ loggedIn: true, user: req.session.user });
+  }
+  res.json({ loggedIn: false });
+});
+
+// Route: logout
+ 
+app.post("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.json({ success: true });
+  });
+});
 
 
 // server start

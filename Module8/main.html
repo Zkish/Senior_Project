@@ -34,4 +34,21 @@
   <p>Homekit is the place to come to when you have inquiries about your DIY projects.</p>
 
 </body>
+
+<script>
+  (async () => {
+    try {
+      const res = await fetch("/auth-check");
+      const data = await res.json();
+  
+      if (!data.loggedIn) {
+        window.location.href = "login.html";
+      }
+    } catch (err) {
+      console.error("Auth check failed:", err);
+      window.location.href = "login.html";
+    }
+  })();
+  </script>
+  
 </html>
