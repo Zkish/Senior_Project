@@ -30,29 +30,81 @@
     <p class="subtitle">Sign up to start managing your DIY projects with HomeKit</p>
 
     <!-- Account Form -->
-    <form id="account-form">
-      <input type="text" name="username" placeholder="Username" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirm-password" placeholder="Confirm Password" required>
+    <form id="account-form" onsubmit="createAccount(event)">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
       <button type="submit" id="create-account-button">Create Account</button>
     </form>
 
+    <p id="errorMsg" style="text-align:center; margin-top: 15px; color: #ff6961; font-weight:bold;"></p>
+
     <p style="text-align:center; margin-top: 15px; color: #dfe6f0;">
-      Already have an account? <a href="login.html" style="color: #ffeb3b; text-decoration: underline;">Log in here</a>
+      Already have an account? 
+      <a href="login.html" style="color: #ffeb3b; text-decoration: underline;">Log in here</a>
     </p>
+
     <div class="account-logo">
-      <img src="HomeKit_Icon.png" alt="HomeKit Logo">
+      <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="margin-top:20px;">
     </div>
-    
   </div>
 
+  <!-- Mobile menu -->
   <script>
-    // Toggle mobile menu
     function toggleMenu() {
       const navLinks = document.getElementById('nav-links');
       navLinks.classList.toggle('show');
     }
   </script>
+
+  <!-- Create Account Logic -->
+  <script>
+    async function createAccount(event) {
+      event.preventDefault(); // won't allow default form submittion
+
+      // data handling
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const errorMsg = document.getElementById("errorMsg");
+
+      errorMsg.textContent = "";
+
+      // validation (empty or non-matched fields)
+      if (!username || !email || !password) {
+        errorMsg.textContent = "All fields are required.";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        errorMsg.textContent = "Passwords do not match.";
+        return;
+      }
+
+      // fetch route to post new account to database (or return that it cant occur)
+
+      try {
+        const response = await fetch("/create-account", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          window.location.href = "login.html";
+        } else {
+          errorMsg.textContent = result.message || "Account creation failed.";
+        }
+      } catch (err) {
+        console.error("Account creation error:", err);
+        errorMsg.textContent = "Server error. Please try again.";
+      }
+    }
+  </script>
+
 </body>
 </html>
