@@ -14,11 +14,17 @@ season = int(data["season"])
 
 risk = 0
 
-risk += home_age * 1.3
-risk += roof_age * 2.0
-risk += hvac_age * 1.8
-risk += water_heater_age * 1.2
-risk += repairs * 3.0
+# risk calculators added risk caps so one element isn't too damaging, and lowered some of the multipliers
+risk += min(max(home_age - 30, 0) * 0.8, 40)
+
+if roof_age > 5:
+    risk += min((roof_age - 5) * 2.0, 50)
+
+if hvac_age > 3:
+    risk += min((hvac_age - 3) * 1.5, 40)
+risk += min(water_heater_age * 1.2, 30)
+
+risk += min(repairs * 2.0, 20)
 
 if maint:
     risk *= 0.8

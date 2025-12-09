@@ -8,6 +8,8 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 const session = require("express-session");
+const { spawn } = require("child_process");
+
 
 
 // test DB connection
@@ -175,6 +177,52 @@ app.post("/logout", (req, res) => {
     res.json({ success: true });
   });
 });
+
+// risk assessment
+
+app.post("/predict", (req, res) => {
+    const py = spawn("python3", ["predict.py"]);
+  
+    py.stdin.write(JSON.stringify(req.body));
+    py.stdin.end();
+  
+    let result = "";
+    let errorOutput = "";
+  
+    py.stdout.on("data", (data) => {
+        console.log("PYTHON OUTPUT:", data.toString());
+      result += data.toString();
+    });
+  
+    py.stderr.on("data", (data) => {
+        console.error("PYTHON ERROR:", data.toString());
+      errorOutput += data.toString();
+    });
+  
+    py.on("close", (code) => {
+      if (errorOutput) {
+        console.error("Python error:", errorOutput);
+      }
+  
+      if (!result) {
+        return res.status(500).json({
+          error: "No result from Python",
+          pythonError: errorOutput || null
+        });
+      }
+  
+      try {
+        const parsed = JSON.parse(result);
+        res.json(parsed);
+      } catch (err) {
+        console.error("JSON parse error. Raw result:", result);
+        return res.status(500).json({
+          error: "Invalid JSON from Python",
+          raw: result
+        });
+      }
+    });
+  });
 
 
 // server start

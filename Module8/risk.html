@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+  <title>HomeKit - Risk Estimator</title>
+  <link rel="icon" type="image/png" href="HomeKit_Icon.png">
+  <link rel="stylesheet" href="risk.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#" class="logo">
+      <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="height: 30px; vertical-align: middle; margin-right: 8px;">
+      HomeKit
+    </a>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <ul id="nav-links">
+      <li><a href="main.html">Home</a></li>
+      <li><a href="estimator.html">Estimation Calculator</a></li>
+      <li><a href="forum.html">Forum</a></li>
+      <li><a href="account.html">Account</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Home Repair Risk Estimator</h1>
+    <p class="subtitle">Enter your home details to estimate maintenance risk</p>
+
+    <div class="form-container">
+      <form id="risk-form">
+
+        <input type="number" name="home_age" placeholder="Home Age (years)" required>
+        <input type="number" name="roof_age" placeholder="Roof Age (years)" required>
+        <input type="number" name="hvac_age" placeholder="HVAC System Age (years)" required>
+        <input type="number" name="water_heater_age" placeholder="Water Heater Age (years)" required>
+        <input type="number" name="repairs_last_12m" placeholder="Repairs in Last 12 Months" required>
+
+        <label style="color:white; font-size:16px; margin-top:10px;">
+          Maintenance Checklist Completed?
+        </label>
+        <select name="maint_check" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label style="color:white; font-size:16px; margin-top:10px;">
+          Region (Climate Zone)
+        </label>
+        <select name="region" required>
+          <option value="1">Northeast / Upper Midwest</option>
+          <option value="2">Southeast</option>
+          <option value="3">Southwest</option>
+          <option value="4">West Coast</option>
+          <option value="5">Central US</option>
+        </select>
+
+        <label style="color:white; font-size:16px; margin-top:10px;"> Current Season </label>
+        <select name="season" required>
+          <option value="1">Winter</option>
+          <option value="2">Spring</option>
+          <option value="3">Summer</option>
+          <option value="4">Fall</option>
+        </select>
+
+        <button type="submit">Calculate Risk</button>
+
+      </form>
+
+      <!-- results will display here-->
+      <div id="results" style="margin-top:25px; color:white; font-size:18px; text-align:center;"></div>
+    </div>
+  </div>
+
+  <!-- should be elsewhere in prototype -->
+  <script>
+
+    
+    // mobile toggle
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('show');
+    }
+
+    // form handling
+    document.getElementById("risk-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
+      for (let key in data) {
+        data[key] = Number(data[key]);
+      }
+
+      const response = await fetch("http://localhost:3000/predict", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      // display results
+      document.getElementById("results").innerHTML = `
+        <p>Risk Score: ${result.risk_score}</p>
+        <p>Risk Category: ${result.risk_category}</p>
+      `;
+    });
+  </script>
+
+</body>
+</html>
