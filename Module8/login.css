@@ -1,0 +1,100 @@
+/* Global page layout */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0056b3, #007bff, #f4f4f4);
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Login Card */
+  .login-box {
+    background: #fff;
+    width: 340px;
+    padding: 30px 25px;
+    
+    border-radius: 12px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
+  
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  /* Title spacing */
+  .login-box h2 {
+    margin: 0 0 20px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Input styling */
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    
+    border-radius: 6px;
+    border: 1px solid #d0d0d0;
+    font-size: 15px;
+    box-sizing: border-box;
+    
+    outline: none;
+    transition: 0.25s border;
+  }
+  
+  input:focus {
+    border: 1px solid #007bff;
+  }
+  
+  /* Button styling */
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    
+    background: #007bff;
+    color: white;
+    
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.2s ease;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  /* Error message */
+  .error {
+    color: #d93025;
+    margin-top: 15px;
+    min-height: 18px;
+    font-size: 14px;
+  }
+  
+  /* Link styling */
+  a {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
