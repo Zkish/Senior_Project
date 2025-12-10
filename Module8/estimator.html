@@ -196,6 +196,48 @@
     }
 
 
+    /* Roofing Shingle Calculator Script */
+    function roofCalc() {
+    const area = parseFloat(document.getElementById("roof_area").value);
+    const coverage = parseFloat(document.getElementById("roof_bundle").value);
+    const costPerBundle = parseFloat(document.getElementById("roof_cost").value);
+
+    if (isNaN(area) || isNaN(coverage) || isNaN(costPerBundle) || coverage === 0) {
+        document.getElementById("roof_output").innerHTML =
+            "<span style='color:black;'>Please enter valid numbers.</span>";
+        return;
+    }
+
+    const bundlesNeeded = area / coverage;
+    const totalCost = bundlesNeeded * costPerBundle;
+
+    document.getElementById("roof_output").innerHTML =
+        `<strong>Bundles Needed:</strong> ${Math.ceil(bundlesNeeded)}<br>
+         <strong>Estimated Cost:</strong> $${totalCost.toFixed(2)}`;
+    }
+
+
+
+    /* Insulation R-Value Estimator Script */
+    function insulCalc() {
+    const area = parseFloat(document.getElementById("insul_area").value);
+    const rPerInch = parseFloat(document.getElementById("insul_rinch").value);
+    const desiredR = parseFloat(document.getElementById("insul_desired").value);
+
+    if (isNaN(area) || isNaN(rPerInch) || isNaN(desiredR) || rPerInch === 0) {
+        document.getElementById("insul_output").innerHTML =
+            "<span style='color:black;'>Please enter valid numbers.</span>";
+        return;
+    }
+
+    const thicknessNeeded = desiredR / rPerInch;
+
+    document.getElementById("insul_output").innerHTML =
+        `<strong>Required Thickness:</strong> ${thicknessNeeded.toFixed(2)} inches<br>
+         <strong>Total Coverage Area:</strong> ${area.toFixed(2)} sq ft`;
+    }
+
+
     /* Lumber Board Foot Calculator Script */
 
     function lumberCalc() {
@@ -219,7 +261,7 @@
     }
 
 
-    /* Concrete Volume Calculator */
+    
 
     /* Concrete Volume Calculator Script */
     function concreteCalc() {
