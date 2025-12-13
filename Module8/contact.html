@@ -4,63 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
-  <link rel="icon" type="image/png" href="HomeKit_Icon.png">
+   <link rel="icon" type="image/png" href="HomeKit_Icon.png">
   <link rel="stylesheet" href="contactstyles.css">
 </head>
 <body>
-  <nav>
-    <a href="#" class="logo">
-      <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="height: 30px; vertical-align: middle; margin-right: 8px;">
-      HomeKit
-    </a>
-    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
-    <ul id="nav-links">
-      <li><a href="main.html">Home</a></li>
-      <li><a href="estimator.html">Estimation Calculator</a></li>
-      <li><a href="forum.html">Forum</a></li>
-      <li><a href="risk.html">Risk Analysis</a></li>
-      <li><a href="account.html">Account</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
-
-  <div class="container">
-    <form id="contactForm">
-      <h1>Contact Us</h1>
-      <input type="text" id="firstName" placeholder="First Name" required>
-      <input type="text" id="lastName" placeholder="Last Name" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="text" id="mobile" placeholder="Mobile" required>
-      <h4>Type Your Message Here...</h4>
-      <textarea id="message" required></textarea>
-      <input type="submit" value="Send" id="button" />
-    </form>
-  </div>
-
-  <script>
-    const contactForm = document.getElementById("contactForm");
-
-    contactForm.addEventListener("submit", function(event) {
-      event.preventDefault(); 
-
-      const email = document.getElementById("email").value;
-      const mobile = document.getElementById("mobile").value;
-
-      if (!email.includes("@")) {
-        alert("Please enter a valid email address with '@'.");
-        return; 
-      }
-
-      const areaCode = mobile.substring(0, 3);
-      if (!/^[2-9][0-9]{2}$/.test(areaCode)) {
-        alert("Please enter a valid phone number with a correct area code (first 3 digits).");
-        return; 
-      }
-
-      alert("Form submitted successfully!");
-      contactForm.reset();
-    });
-  </script>
+    <nav>
+        <a href="#" class="logo">
+        <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="height: 30px; vertical-align: middle; margin-right: 8px;">
+        HomeKit
+        </a>
+          <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+          <ul id="nav-links">
+              <li><a href="main.html">Home</a></li>
+              <li><a href="estimator.html">Estimation Calculator</a></li>
+              <li><a href="forum.html">Forum</a></li>
+              <li><a href="risk.html">Risk Analysis</a></li>
+              <li><a href="account.html">Account</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+    <div class="container">
+        <form>
+            <h1>Contact Us</h1>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="mobile" placeholder="Mobile" required>
+            <h4>Type Your Message Here...</h4>
+            <textarea required></textarea>
+            <input type="submit" value="Send" id="button" />
+        </form>
+    </div>
+    <script>
+        (async () => {
+          try {
+            const res = await fetch("/auth-check");
+            const data = await res.json();
+        
+            if (!data.loggedIn) {
+              window.location.href = "login.html";
+            }
+          } catch (err) {
+            console.error("Auth check failed:", err);
+            window.location.href = "login.html";
+          }
+        })();
+        </script>
 </body>
-</html>
-   
+</html>        

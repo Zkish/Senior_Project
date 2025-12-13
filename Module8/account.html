@@ -50,48 +50,6 @@
       <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="margin-top:20px;">
     </div>
   </div>
-  <script>
-    function createAccount(event) {
-      event.preventDefault(); 
-    
-      const username = document.getElementById("username").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value;
-      const confirmPassword = document.getElementById("confirmPassword").value;
-      const errorMsg = document.getElementById("errorMsg");
-    
-      errorMsg.textContent = "";
-    
-      if (!email.includes("@")) {
-        errorMsg.textContent = "Please enter a valid email with '@'.";
-        return;
-      }
-    
-      if (password.length < 10) {
-        errorMsg.textContent = "Password must be at least 10 characters long.";
-        return;
-      }
-    
-      const specialCharPattern = /[!@#$%^&*(),.?":{}|<>]{2,}/;
-      if (specialCharPattern.test(password)) {
-        errorMsg.textContent = "Password cannot contain special characters in a row.";
-        return;
-      }
-    
-      if (password !== confirmPassword) {
-        errorMsg.textContent = "Passwords do not match.";
-        return;
-      }
-    
-      console.log("Account created successfully!");
-      console.log("Username:", username);
-      console.log("Email:", email);
-    
-      document.getElementById("account-form").reset();
-      errorMsg.style.color = "#4CAF50"; // green for success
-      errorMsg.textContent = "Account created successfully!";
-    }
-    </script>
 
   <!-- Mobile menu -->
   <script>

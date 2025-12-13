@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const SALT_ROUNDS = 10;
 const cors = require('cors');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const session = require("express-session");
 const { spawn } = require("child_process");
 
