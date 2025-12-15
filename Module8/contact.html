@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
    <link rel="icon" type="image/png" href="HomeKit_Icon.png">
-  <link rel="stylesheet" href="contactstyles.css">
+  <link rel="stylesheet" href="./css/contactstyles.css">
 </head>
 <body>
     <nav>
@@ -35,20 +35,6 @@
             <input type="submit" value="Send" id="button" />
         </form>
     </div>
-    <script>
-        (async () => {
-          try {
-            const res = await fetch("/auth-check");
-            const data = await res.json();
-        
-            if (!data.loggedIn) {
-              window.location.href = "login.html";
-            }
-          } catch (err) {
-            console.error("Auth check failed:", err);
-            window.location.href = "login.html";
-          }
-        })();
-        </script>
+    <script src="./js/authCheck.js"></script>
 </body>
 </html>        

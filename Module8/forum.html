@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forum - HomeKit</title>
   <link rel="icon" type="image/png" href="HomeKit_Icon.png">
-  <link rel="stylesheet" href="forumstyles.css">
+  <link rel="stylesheet" href="./css/forumstyles.css">
 </head>
 <body>
   <nav>
@@ -70,21 +70,7 @@
       document.getElementById("nav-links").classList.toggle("active");
     }
   </script>
-  <script>
-    (async () => {
-      try {
-        const res = await fetch("/auth-check");
-        const data = await res.json();
-    
-        if (!data.loggedIn) {
-          window.location.href = "login.html";
-        }
-      } catch (err) {
-        console.error("Auth check failed:", err);
-        window.location.href = "login.html";
-      }
-    })();
-    </script>
+  <script src="./js/authCheck.js"></script>
     
 </body>
 </html>
