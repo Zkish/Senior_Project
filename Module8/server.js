@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const SALT_ROUNDS = 10;
 const cors = require('cors');
 const app = express();
-const PORT = 3001;
+const PORT = 3005;
 const session = require("express-session");
 const { spawn } = require("child_process");
 
@@ -152,7 +152,7 @@ app.post("/login", (req, res) => {
 
     // user session
     req.session.user = {
-      id: user.id,
+      id: user.user_id,
       username: user.username,
       email: user.email
     };
@@ -226,6 +226,108 @@ app.post('/predict', (req, res) => {
     }
   });
 });
+
+// get threads
+
+app.get('/threads', (req, res) => {
+  console.log('SESSION USER:', req.session.user);
+  const sql = `SELECT Threads.*, Users.username FROM Threads JOIN Users ON Threads.user_id = Users.user_id ORDER BY Threads.created_at DESC`;
+  db.query(sql, (err, results) => {
+    if (err) return res.status(500).json({ success: false });
+    res.json(results);
+  });
+});
+
+// post thread
+
+app.post('/threads', (req, res) => {
+  if (!req.session.user)
+    return res.status(401).json({ success: false });
+
+  const { title, body } = req.body;
+
+  const sql = `INSERT INTO Threads (title, body, user_id) VALUES (?, ?, ?)`;
+
+  db.query(
+    sql,
+    [title, body, req.session.user.id],
+    (err, result) => {
+      if (err) return res.status(500).json({ success: false });
+      res.json({ success: true, threadId: result.insertId });
+    }
+  );
+});
+
+app.get('/threads/:id', (req, res) => {
+  const sql = `SELECT Threads.*, Users.username FROM Threads JOIN Users ON Threads.user_id = Users.user_id WHERE Threads.id = ?`;
+
+  db.query(sql, [req.params.id], (err, results) => {
+    if (err || results.length === 0)
+      return res.status(404).json({ success: false });
+
+    res.json({ thread: results[0] });
+  });
+});
+
+app.get('/threads/:id/replies', (req, res) => {
+  const sql = `SELECT Replies.*, Users.username FROM Replies JOIN Users ON Replies.user_id = Users.user_id WHERE Replies.thread_id = ?ORDER BY Replies.created_at ASC`;
+
+  db.query(sql, [req.params.id], (err, results) => {
+    if (err) return res.status(500).json({ success: false });
+    res.json(results);
+  });
+});
+
+// post a reply
+
+app.post('/threads/:id/replies', (req, res) => {
+  if (!req.session.user)
+    return res.status(401).json({ success: false });
+
+  const sql = `INSERT INTO Replies (thread_id, user_id, body) VALUES (?, ?, ?)`;
+
+  db.query(
+    sql,
+    [req.params.id, req.session.user.id, req.body.body],
+    err => {
+      if (err) return res.status(500).json({ success: false });
+      res.json({ success: true });
+    }
+  );
+});
+
+// contact post
+
+app.post('/contact', (req, res) => {
+  const { firstName, lastName, email, mobile, message } = req.body;
+  if (!firstName || !lastName || !email || !message) {
+    return res.status(400).json({ success: false });
+  }
+  const sql = `INSERT INTO ContactMessages (first_name, last_name, email, mobile, message) VALUES (?, ?, ?, ?, ?)`;
+  db.query(
+    sql,
+    [firstName, lastName, email, mobile, message],
+    err => {
+      if (err) return res.status(500).json({ success: false });
+      res.json({ success: true });
+    }
+  );
+});
+
+// get contact posts
+
+app.get('/admin', (req, res) => {
+  if (!req.session.user || req.session.user.username !== 'Craigery') {
+    return res.status(403).json({ success: false });
+  }
+  const sql = `SELECT * FROM ContactMessages ORDER BY created_at DESC`;
+  db.query(sql, (err, results) => {
+    if (err) return res.status(500).json({ success: false });
+    res.json(results);
+  });
+});
+
+
 
 // server start
 app.listen(PORT, '0.0.0.0', () => console.log(`Server running on http://0.0.0.0:${PORT}`));

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thread</title>
+  <link rel="stylesheet" href="./css/forumstyles.css">
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <img src="HomeKit_Icon.png" style="height:30px;margin-right:8px;">
+    HomeKit
+  </a>
+  <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+  <ul id="nav-links">
+    <li><a href="forum.html">Forum</a></li>
+    <li><a href="account.html">Account</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div id="threadContainer"></div>
+
+  <form id="replyForm">
+    <h3>Reply</h3>
+    <textarea id="replyBody" required></textarea>
+    <input type="submit" value="Post Reply">
+  </form>
+</div>
+
+<div class="forum-posts">
+  <h2>Replies</h2>
+  <div id="repliesContainer"></div>
+</div>
+
+<script src="./js/thread.js"></script>
+<script src="./js/authCheck.js"></script>
+
+</body>
+</html>

@@ -1,10 +1,4 @@
-    // mobile toggle
-    function toggleMenu() {
-      const navLinks = document.getElementById('nav-links');
-      navLinks.classList.toggle('show');
-    }
-
-    // form handling
+// form handling
     document.getElementById("risk-form").addEventListener("submit", async function(e) {
       e.preventDefault();
 
@@ -14,7 +8,7 @@
         data[key] = Number(data[key]);
       }
 
-      const response = await fetch("http://localhost:3001/predict", {
+      const response = await fetch("http://localhost:3005/predict", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)

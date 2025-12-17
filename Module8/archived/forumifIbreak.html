@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="./css/forumstyles.css">
 </head>
 <body>
-
   <nav>
     <a href="#" class="logo">
       <img src="HomeKit_Icon.png" alt="HomeKit Logo" style="height: 30px; vertical-align: middle; margin-right: 8px;">
@@ -28,24 +27,50 @@
   <div class="container">
     <form id="forumForm">
       <h1>Community Forum</h1>
-
+      <input type="text" id="username" placeholder="Your Name" required>
       <input type="text" id="topic" placeholder="Topic Title" required>
-
       <h4>Start a Discussion:</h4>
       <textarea id="message" placeholder="Share your thoughts or ask a question..." required></textarea>
-
       <input type="submit" value="Post" id="button" />
     </form>
   </div>
 
   <div class="forum-posts">
     <h2>Recent Discussions</h2>
-    <div id="postsContainer"></div>
+    <div id="postsContainer">
+      <!-- New posts will appear here -->
+    </div>
   </div>
 
-  <script src="./js/forum.js"></script>
-  <script src="./js/authCheck.js"></script>
+  <script>
+    const form = document.getElementById('forumForm');
+    const postsContainer = document.getElementById('postsContainer');
 
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const topic = document.getElementById('topic').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (username && topic && message) {
+        const postDiv = document.createElement('div');
+        postDiv.classList.add('post');
+        postDiv.innerHTML = `
+          <h3>${topic}</h3>
+          <p>${message}</p>
+          <small>Posted by <b>${username}</b> just now</small>
+        `;
+        postsContainer.prepend(postDiv);
+        form.reset();
+      }
+    });
+
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("active");
+    }
+  </script>
+  <script src="./js/authCheck.js"></script>
+    
 </body>
 </html>
-
